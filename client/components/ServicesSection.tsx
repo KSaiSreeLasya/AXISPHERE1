@@ -63,9 +63,9 @@ export default function ServicesSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-6xl font-bold text-foreground mb-6"
           >
-            Our{' '}
+            AI-Powered{' '}
             <span className="bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
-              Expertise
+              Marketing Solutions
             </span>
           </motion.h2>
           <motion.p
