@@ -247,6 +247,8 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
+          <StatsBar />
+
         </motion.div>
       </div>
     </section>
