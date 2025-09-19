@@ -7,7 +7,6 @@ import AboutSection from '@/components/AboutSection';
 import BlogSection from '@/components/BlogSection';
 import PricingSection from '@/components/PricingSection';
 import ContactSection from '@/components/ContactSection';
-import FloatingCTA from '@/components/FloatingCTA';
 import BrandLogo from '@/components/BrandLogo';
 
 export default function Index() {
@@ -97,8 +96,6 @@ export default function Index() {
         </div>
       </footer>
       
-      {/* Floating CTA */}
-      <FloatingCTA />
     </div>
   );
 }
