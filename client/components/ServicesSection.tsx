@@ -74,8 +74,8 @@ export default function ServicesSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            We specialize in transforming ambitious brands into luxury market leaders 
-            through strategic design, cutting-edge technology, and data-driven marketing.
+            Transform your growth with a comprehensive suite of AI-driven marketing services
+            designed to deliver measurable results and superior customer experiences.
           </motion.p>
         </motion.div>
 
