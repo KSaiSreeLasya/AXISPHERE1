@@ -236,7 +236,7 @@ export default function HeroSection() {
             >
               <Button
                 variant="outline"
-                className="relative border-2 border-white/30 bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-full text-lg font-semibold backdrop-blur-sm transition-all duration-300"
+                className="relative border-2 border-foreground/20 bg-transparent hover:bg-foreground/10 text-foreground px-8 py-4 rounded-full text-lg font-semibold backdrop-blur-sm transition-all duration-300"
               >
                 <span className="flex items-center gap-2">
                   <Play size={20} className="fill-current" />
@@ -246,25 +246,6 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.8 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-6 h-10 border-2 border-foreground/30 rounded-full flex justify-center"
-            >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                className="w-1 h-3 bg-foreground/60 rounded-full mt-2"
-              />
-            </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
