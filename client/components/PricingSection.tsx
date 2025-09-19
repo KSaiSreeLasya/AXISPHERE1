@@ -49,7 +49,8 @@ export default function PricingSection() {
             Choose Your AI Marketing Package
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Scalable, results-driven solutions designed to grow with your business.
+            Scalable, results-driven solutions designed to grow with your
+            business.
           </p>
         </div>
 
@@ -75,22 +76,33 @@ export default function PricingSection() {
               </div>
 
               <div className="mb-6 text-3xl font-bold">
-                {p.price} <span className="text-sm font-normal text-muted-foreground">/ month</span>
+                {p.price}{" "}
+                <span className="text-sm font-normal text-muted-foreground">
+                  / month
+                </span>
               </div>
 
               <ul className="space-y-3 mb-6">
                 {p.highlights.map((h) => (
-                  <li key={h} className="flex items-center gap-2 text-sm text-foreground/80">
+                  <li
+                    key={h}
+                    className="flex items-center gap-2 text-sm text-foreground/80"
+                  >
                     <Check className="w-4 h-4 text-gold-600" /> {h}
                   </li>
                 ))}
               </ul>
 
               <div className="rounded-xl border border-border/50 bg-secondary/30 p-4 text-sm">
-                <div className="mb-2 font-semibold text-foreground">Success Metrics Target</div>
+                <div className="mb-2 font-semibold text-foreground">
+                  Success Metrics Target
+                </div>
                 <ul className="space-y-1">
                   {p.targets.map((t) => (
-                    <li key={t} className="flex items-center gap-2 text-foreground/80">
+                    <li
+                      key={t}
+                      className="flex items-center gap-2 text-foreground/80"
+                    >
                       <Check className="w-4 h-4 text-platinum-600" /> {t}
                     </li>
                   ))}

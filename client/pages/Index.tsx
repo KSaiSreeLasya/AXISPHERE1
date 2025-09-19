@@ -1,26 +1,26 @@
-import Navigation from '@/components/Navigation';
-import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
-import CaseStudiesSection from '@/components/CaseStudiesSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import AboutSection from '@/components/AboutSection';
-import BlogSection from '@/components/BlogSection';
-import PricingSection from '@/components/PricingSection';
-import ContactSection from '@/components/ContactSection';
-import BrandLogo from '@/components/BrandLogo';
+import Navigation from "@/components/Navigation";
+import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutSection from "@/components/AboutSection";
+import BlogSection from "@/components/BlogSection";
+import PricingSection from "@/components/PricingSection";
+import ContactSection from "@/components/ContactSection";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <Navigation />
-      
+
       {/* Hero Section */}
       <HeroSection />
-      
+
       {/* Services Section */}
       <ServicesSection />
-      
+
       {/* Case Studies Section */}
       <CaseStudiesSection />
 
@@ -29,16 +29,16 @@ export default function Index() {
 
       {/* Testimonials Section */}
       <TestimonialsSection />
-      
+
       {/* About Section */}
       <AboutSection />
-      
+
       {/* Blog Section */}
       <BlogSection />
-      
+
       {/* Contact Section */}
       <ContactSection />
-      
+
       {/* Footer */}
       <footer className="bg-secondary dark:bg-luxury-950 border-t border-border py-16">
         <div className="container mx-auto px-6">
@@ -48,54 +48,135 @@ export default function Index() {
                 <BrandLogo className="h-[101px] lg:h-12 w-auto" />
               </div>
               <p className="text-foreground/70 dark:text-white/70 leading-relaxed">
-                Transforming ambitious brands into luxury market leaders through 
+                Transforming ambitious brands into luxury market leaders through
                 strategic design and innovative technology.
               </p>
             </div>
-            
+
             <div>
-              <h4 className="text-foreground dark:text-white font-semibold mb-4">Services</h4>
+              <h4 className="text-foreground dark:text-white font-semibold mb-4">
+                Services
+              </h4>
               <ul className="space-y-2 text-foreground/70 dark:text-white/70">
-                <li><a href="#services" className="hover:text-gold-400 transition-colors">Luxury Branding</a></li>
-                <li><a href="#services" className="hover:text-gold-400 transition-colors">Web Design</a></li>
-                <li><a href="#services" className="hover:text-gold-400 transition-colors">Digital Marketing</a></li>
-                <li><a href="#services" className="hover:text-gold-400 transition-colors">Performance Campaigns</a></li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Luxury Branding
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Web Design
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Digital Marketing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Performance Campaigns
+                  </a>
+                </li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="text-foreground dark:text-white font-semibold mb-4">Company</h4>
+              <h4 className="text-foreground dark:text-white font-semibold mb-4">
+                Company
+              </h4>
               <ul className="space-y-2 text-foreground/70 dark:text-white/70">
-                <li><a href="#about" className="hover:text-gold-400 transition-colors">About Us</a></li>
-                <li><a href="#work" className="hover:text-gold-400 transition-colors">Our Work</a></li>
-                <li><a href="#insights" className="hover:text-gold-400 transition-colors">Insights</a></li>
-                <li><a href="#contact" className="hover:text-gold-400 transition-colors">Contact</a></li>
+                <li>
+                  <a
+                    href="#about"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#work"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Our Work
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#insights"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Insights
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Contact
+                  </a>
+                </li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="text-foreground dark:text-white font-semibold mb-4">Connect</h4>
+              <h4 className="text-foreground dark:text-white font-semibold mb-4">
+                Connect
+              </h4>
               <ul className="space-y-2 text-foreground/70 dark:text-white/70">
-                <li><a href="#" className="hover:text-gold-400 transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-gold-400 transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-gold-400 transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-gold-400 transition-colors">Dribbble</a></li>
+                <li>
+                  <a href="#" className="hover:text-gold-400 transition-colors">
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gold-400 transition-colors">
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gold-400 transition-colors">
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gold-400 transition-colors">
+                    Dribbble
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="text-foreground/60 dark:text-white/60 text-sm">
               © 2024 LuxuryStudio. All rights reserved.
             </div>
             <div className="flex gap-6 text-foreground/60 dark:text-white/60 text-sm">
-              <a href="#" className="hover:text-gold-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-gold-400 transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-gold-400 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-gold-400 transition-colors">
+                Terms of Service
+              </a>
             </div>
           </div>
         </div>
       </footer>
-      
     </div>
   );
 }
