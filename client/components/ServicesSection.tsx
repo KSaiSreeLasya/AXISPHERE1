@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Palette, Monitor, TrendingUp, Zap } from "lucide-react";
+import { Palette, Monitor, TrendingUp, Zap, FileText, Megaphone, UserPlus, Bot, Workflow, BarChart3 } from "lucide-react";
 
 interface Service {
   icon: React.ReactNode;
@@ -49,16 +49,81 @@ const services: Service[] = [
   },
   {
     icon: <Zap size={32} />,
-    title: "Performance Campaigns",
+    title: "Performance Marketing",
     description:
-      "Data-driven advertising campaigns that maximize ROI and accelerate business growth.",
+      "Data-driven advertising campaigns that maximize ROI and accelerate growth across channels.",
     features: [
-      "PPC Management",
-      "Conversion Optimization",
+      "Google & Meta Ads",
+      "Conversion Rate Optimization",
       "A/B Testing",
+      "Performance Reporting",
+    ],
+    gradient: "from-gold-500 to-platinum-500",
+  },
+  {
+    icon: <FileText size={32} />,
+    title: "AI Content Creation",
+    description:
+      "AI-powered content that is brand-consistent and SEO-optimized for every channel.",
+    features: [
+      "Blog & SEO Content",
+      "Social Media Calendars",
+      "Email Campaigns",
+      "Website & Landing Copy",
+    ],
+    gradient: "from-gold-400 to-gold-600",
+  },
+  {
+    icon: <UserPlus size={32} />,
+    title: "Lead Generation",
+    description:
+      "High-converting funnels that capture, qualify, and nurture leads automatically.",
+    features: [
+      "Funnel Strategy",
+      "Landing Pages",
+      "Lead Magnets",
+      "CRM Integration",
+    ],
+    gradient: "from-platinum-400 to-platinum-600",
+  },
+  {
+    icon: <Bot size={32} />,
+    title: "AI Chatbots",
+    description:
+      "Intelligent chatbots for instant support, lead qualification, and 24/7 engagement.",
+    features: [
+      "Natural Language Processing",
+      "Multi-platform Support",
+      "Lead Qualification",
+      "Support Automation",
+    ],
+    gradient: "from-luxury-400 to-luxury-600",
+  },
+  {
+    icon: <Workflow size={32} />,
+    title: "Marketing Automation",
+    description:
+      "Automate customer journeys with triggers, segmentation, and personalized messaging.",
+    features: [
+      "Email Automation",
+      "Behavioral Triggers",
+      "Segmentation & Personalization",
       "ROI Tracking",
     ],
     gradient: "from-gold-500 to-platinum-500",
+  },
+  {
+    icon: <BarChart3 size={32} />,
+    title: "Analytics & Insights",
+    description:
+      "Dashboards and predictive analytics that turn data into clear growth decisions.",
+    features: [
+      "Performance Dashboards",
+      "Behavior Analysis",
+      "Predictive Modeling",
+      "Forecasting",
+    ],
+    gradient: "from-platinum-400 to-platinum-600",
   },
 ];
 
