@@ -280,8 +280,16 @@ export default function ServicesSection() {
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
           <TabsList className="mb-6 w-full h-auto flex flex-wrap items-stretch justify-center gap-2 bg-secondary/60 backdrop-blur-xs border border-border/50 rounded-md p-2">
             {services.map((s) => (
-              <TabsTrigger key={s.id} value={s.id} className="gap-2 px-3 py-2 whitespace-normal text-center leading-tight min-h-10">
-                <span className={`inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br ${s.gradient} text-white`}>{s.icon}</span>
+              <TabsTrigger
+                key={s.id}
+                value={s.id}
+                className="gap-2 px-3 py-2 whitespace-normal text-center leading-tight min-h-10"
+              >
+                <span
+                  className={`inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br ${s.gradient} text-white`}
+                >
+                  {s.icon}
+                </span>
                 <span>{s.title}</span>
               </TabsTrigger>
             ))}
@@ -297,13 +305,21 @@ export default function ServicesSection() {
               >
                 {/* Overview card */}
                 <div className="lg:col-span-1 bg-card border border-border/60 rounded-2xl p-6 shadow-sm">
-                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${s.gradient} text-white mb-4`}>
+                  <div
+                    className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${s.gradient} text-white mb-4`}
+                  >
                     {s.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{s.title}</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{s.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">
+                    {s.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {s.description}
+                  </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-foreground/70">{s.price}</span>
+                    <span className="text-sm text-foreground/70">
+                      {s.price}
+                    </span>
                     <Button className="bg-gold-500 hover:bg-gold-600 text-white">
                       Get Started
                     </Button>
@@ -320,8 +336,13 @@ export default function ServicesSection() {
                     </div>
                     <ul className="space-y-3">
                       {s.features.map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-sm text-foreground/80">
-                          <span className={`mt-1 inline-block h-2 w-2 rounded-full bg-gradient-to-r ${s.gradient}`}></span>
+                        <li
+                          key={f}
+                          className="flex items-start gap-3 text-sm text-foreground/80"
+                        >
+                          <span
+                            className={`mt-1 inline-block h-2 w-2 rounded-full bg-gradient-to-r ${s.gradient}`}
+                          ></span>
                           <span>{f}</span>
                         </li>
                       ))}
@@ -332,7 +353,9 @@ export default function ServicesSection() {
                   <div className="bg-card border border-border/60 rounded-2xl p-6">
                     <div className="flex items-center gap-2 mb-4">
                       <CheckCircle2 className="w-5 h-5 text-gold-600" />
-                      <h4 className="text-lg font-semibold">Benefits & Results</h4>
+                      <h4 className="text-lg font-semibold">
+                        Benefits & Results
+                      </h4>
                     </div>
                     <ul className="space-y-3">
                       {s.benefits.map((b) => (
@@ -348,7 +371,9 @@ export default function ServicesSection() {
                   <div className="md:col-span-2 bg-card border border-border/60 rounded-2xl p-6">
                     <div className="flex items-center gap-2 mb-4">
                       <Zap className="w-5 h-5 text-gold-600" />
-                      <h4 className="text-lg font-semibold">What You'll Receive</h4>
+                      <h4 className="text-lg font-semibold">
+                        What You'll Receive
+                      </h4>
                     </div>
                     <ul className="flex flex-wrap gap-3">
                       {s.deliverables.map((d) => (

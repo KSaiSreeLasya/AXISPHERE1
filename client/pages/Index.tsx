@@ -59,31 +59,76 @@ export default function Index() {
               </h4>
               <ul className="space-y-2 text-foreground/70 dark:text-white/70">
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">AI Content Creation</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    AI Content Creation
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">Performance Marketing</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Performance Marketing
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">Lead Generation</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Lead Generation
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">AI Chatbots</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    AI Chatbots
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">Marketing Automation</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Marketing Automation
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">Analytics & Insights</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Analytics & Insights
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">Luxury Branding</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Luxury Branding
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">Web Design</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Web Design
+                  </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-gold-400 transition-colors">Digital Marketing</a>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Digital Marketing
+                  </a>
                 </li>
               </ul>
             </div>

@@ -126,7 +126,8 @@
 }
 
 /* Hide scrollbars globally while allowing scroll */
-html, body {
+html,
+body {
   overflow-x: hidden;
   -ms-overflow-style: none; /* IE & Edge */
   scrollbar-width: none; /* Firefox */
