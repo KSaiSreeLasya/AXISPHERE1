@@ -202,7 +202,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="grid grid-cols-1 gap-6 max-w-sm mx-auto">
+            <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
               {teamMembers.map((member, index) => (
                 <TeamMemberCard
                   key={member.id}
@@ -260,7 +260,7 @@ function TeamMemberCard({ member, index, isInView, mousePosition }: TeamMemberCa
       onClick={() => setIsHovered((v) => !v)}
     >
       <div className="relative rounded-2xl border border-border/50 hover:border-gold-500/30 hover:shadow-luxury transition-all duration-500 h-full">
-        <div className={`relative h-[520px] md:h-[560px] preserve-3d transition-transform duration-700 ${isHovered ? 'rotate-y-180' : ''}`}>
+        <div className={`relative h-[720px] md:h-[760px] preserve-3d transition-transform duration-700 ${isHovered ? 'rotate-y-180' : ''}`}>
           {/* Front: Image + name */}
           <div className="absolute inset-0 backface-hidden overflow-hidden rounded-2xl">
             <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
@@ -271,12 +271,12 @@ function TeamMemberCard({ member, index, isInView, mousePosition }: TeamMemberCa
           </div>
 
           {/* Back: Bio */}
-          <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-2xl bg-luxury-900/90 text-white p-6 flex items-start overflow-y-auto no-scrollbar pr-3">
+          <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-2xl bg-luxury-900/90 text-white p-8 flex items-start overflow-hidden">
             <div className="w-full space-y-4">
               {(member.bioSections || [member.bio]).map((t, i) => (
                 <div key={i} className="relative pl-5">
                   <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gold-500"></span>
-                  <p className="text-sm leading-relaxed">{t}</p>
+                  <p className="text-base leading-relaxed">{t}</p>
                 </div>
               ))}
             </div>
