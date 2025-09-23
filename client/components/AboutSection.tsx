@@ -10,6 +10,7 @@ interface TeamMember {
   title: string;
   image: string;
   bio: string;
+  bioSections?: string[];
 }
 
 interface Value {
@@ -26,6 +27,12 @@ const teamMembers: TeamMember[] = [
     image: '/placeholder.svg',
     bio:
       'A recognized innovator in AI-powered marketing, Shashank builds custom lead-qualification models using ChatGPT Custom GPTs and Perplexity Labs, and designs intelligent automation workflows with Make.com, VAPI (WhatsApp API), and Philo call automation. His seamless CRM integrations—spanning Priber CRM, Sell.do, Apollo, and LinkedIn Sales Navigator—ensure real-time engagement and eliminate manual bottlenecks. Throughout his career, Shashank has delivered transformative outcomes: 15× revenue growth for oncology departments, six-figure ROI on luxury villa launches such as Konak Mansions and Iqon West, and AI-driven Shopify e-commerce scaling. As a sought-after corporate trainer, he has led workshops and certification programs for Digiperform, DSIM, and Digital Hat, empowering marketing teams to harness AI for measurable results. Whether you’re launching a marquee property, accelerating e-commerce sales, or automating high-volume lead funnels, Shashank combines deep domain expertise, creative storytelling, and relentless experimentation to deliver sustainable ROI and future-proof your marketing operations.',
+    bioSections: [
+      'A recognized innovator in AI-powered marketing, Shashank builds custom lead-qualification models using ChatGPT Custom GPTs and Perplexity Labs, and designs intelligent automation workflows with Make.com, VAPI (WhatsApp API), and Philo call automation. His seamless CRM integrations—spanning Priber CRM, Sell.do, Apollo, and LinkedIn Sales Navigator—ensure real-time engagement and eliminate manual bottlenecks.',
+      'Throughout his career, Shashank has delivered transformative outcomes: 15× revenue growth for oncology departments, six-figure ROI on luxury villa launches such as Konak Mansions and Iqon West, and AI-driven Shopify e-commerce scaling.',
+      'As a sought-after corporate trainer, he has led workshops and certification programs for Digiperform, DSIM, and Digital Hat, empowering marketing teams to harness AI for measurable results.',
+      'Whether you’re launching a marquee property, accelerating e-commerce sales, or automating high-volume lead funnels, Shashank combines deep domain expertise, creative storytelling, and relentless experimentation to deliver sustainable ROI and future-proof your marketing operations.'
+    ],
   },
 ];
 
@@ -265,7 +272,14 @@ function TeamMemberCard({ member, index, isInView, mousePosition }: TeamMemberCa
 
           {/* Back: Bio */}
           <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-2xl bg-luxury-900/90 text-white p-6 flex items-start overflow-y-auto no-scrollbar pr-3">
-            <p className="text-sm leading-relaxed">{member.bio}</p>
+            <div className="w-full space-y-4">
+              {(member.bioSections || [member.bio]).map((t, i) => (
+                <div key={i} className="relative pl-5">
+                  <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gold-500"></span>
+                  <p className="text-sm leading-relaxed">{t}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
