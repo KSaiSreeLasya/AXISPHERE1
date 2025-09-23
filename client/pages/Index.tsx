@@ -8,6 +8,7 @@ import BlogSection from "@/components/BlogSection";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 import BrandLogo from "@/components/BrandLogo";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
@@ -208,12 +209,12 @@ export default function Index() {
               © 2024 LuxuryStudio. All rights reserved.
             </div>
             <div className="flex gap-6 text-foreground/60 dark:text-white/60 text-sm">
-              <a href="#" className="hover:text-gold-400 transition-colors">
+              <Link to="/privacy-policy" className="hover:text-gold-400 transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-gold-400 transition-colors">
+              </Link>
+              <Link to="/terms" className="hover:text-gold-400 transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
