@@ -247,12 +247,13 @@ function TeamMemberCard({ member, index, isInView, mousePosition }: TeamMemberCa
       style={{
         transform: `translate(${mousePosition.x * parallaxStrength}px, ${mousePosition.y * parallaxStrength}px)`,
       }}
-      className="group relative perspective"
+      className="group relative perspective cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setIsHovered((v) => !v)}
     >
       <div className="relative rounded-2xl border border-border/50 hover:border-gold-500/30 hover:shadow-luxury transition-all duration-500 h-full">
-        <div className={`relative aspect-square preserve-3d transition-transform duration-700 ${isHovered ? 'rotate-y-180' : ''}`}>
+        <div className={`relative h-[520px] md:h-[560px] preserve-3d transition-transform duration-700 ${isHovered ? 'rotate-y-180' : ''}`}>
           {/* Front: Image + name */}
           <div className="absolute inset-0 backface-hidden overflow-hidden rounded-2xl">
             <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
@@ -263,7 +264,7 @@ function TeamMemberCard({ member, index, isInView, mousePosition }: TeamMemberCa
           </div>
 
           {/* Back: Bio */}
-          <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-2xl bg-luxury-900/90 text-white p-6 flex items-center">
+          <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-2xl bg-luxury-900/90 text-white p-6 flex items-start overflow-y-auto no-scrollbar pr-3">
             <p className="text-sm leading-relaxed">{member.bio}</p>
           </div>
         </div>
