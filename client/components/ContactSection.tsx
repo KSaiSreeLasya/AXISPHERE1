@@ -112,11 +112,11 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 items-stretch gap-8 max-w-6xl mx-auto">
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4"
+            className="h-full rounded-2xl border border-border/50 bg-card/90 backdrop-blur-sm p-6 shadow-luxury space-y-4"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
@@ -198,8 +198,10 @@ export default function ContactSection() {
                 className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
               />
             </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <label className="inline-flex items-center gap-2 text-sm text-foreground/80">
+
+            {/* Footer controls: consent on its own line, buttons below */}
+            <div className="space-y-4">
+              <label className="inline-flex items-center gap-2 text-sm text-foreground/80 flex-nowrap whitespace-nowrap">
                 <input
                   type="checkbox"
                   name="consent"
@@ -210,31 +212,33 @@ export default function ContactSection() {
                 I agree to the{" "}
                 <a
                   href="/privacy-policy"
-                  className="underline hover:text-gold-600"
+                  className="underline hover:text-gold-600 whitespace-nowrap"
                 >
                   Privacy Policy
                 </a>
                 .
               </label>
-              <button
-                type="submit"
-                disabled={loading}
-                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60"
-              >
-                {loading ? "Submitting..." : "Schedule My Consultation"}
-              </button>
-              <button
-                type="reset"
-                className="rounded-full border border-border bg-background px-6 py-3 font-medium text-foreground/80 hover:bg-secondary/50"
-              >
-                Reset
-              </button>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60 shadow-glow-gold"
+                >
+                  {loading ? "Submitting..." : "Schedule My Consultation"}
+                </button>
+                <button
+                  type="reset"
+                  className="rounded-full border border-border bg-background px-6 py-3 font-medium text-foreground/80 hover:bg-secondary/50"
+                >
+                  Reset
+                </button>
+              </div>
             </div>
           </form>
 
           {/* Info cards */}
-          <div className="flex flex-col gap-4">
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+          <div className="grid grid-rows-4 gap-4 h-full">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Mail className="h-4 w-4" /> Email
               </div>
@@ -242,13 +246,13 @@ export default function ContactSection() {
                 hello@ai-marketing.studio
               </div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Phone className="h-4 w-4" /> Call us
               </div>
               <div className="text-sm text-foreground/80">+91 98765 43210</div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <MapPin className="h-4 w-4" /> Visit us
               </div>
@@ -259,7 +263,7 @@ export default function ContactSection() {
                 Serilingampally, K.V.Rangareddy-500049, Telangana, India
               </div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Building className="h-4 w-4" /> Business Hours
               </div>
@@ -274,7 +278,7 @@ export default function ContactSection() {
           <h3 className="text-xl font-semibold mb-3 text-foreground">
             Our Location
           </h3>
-          <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm">
+          <div className="rounded-2xl overflow-hidden border border-border/50 shadow-luxury">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.9936605406983!2d78.35132958554053!3d17.507816056538655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9273f8b4a06b%3A0x89f1605341133cd3!2s102%2C%20103%2C%20Temple%20Ln%2C%20Phase%202%2C%20Jaya%20Prakash%20Narayan%20Nagar%2C%20Miyapur%2C%20Hyderabad%2C%20Telangana%20500049!5e0!3m2!1shi!2sin!4v1758605947867!5m2!1shi!2sin"
               width="100%"

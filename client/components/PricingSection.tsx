@@ -95,7 +95,7 @@ export default function PricingSection() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl border bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-luxury ${
+              className={`relative h-full flex flex-col rounded-3xl border bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-luxury ${
                 p.featured ? "ring-2 ring-gold-500" : "border-border/60"
               }`}
             >
@@ -130,7 +130,7 @@ export default function PricingSection() {
                 ))}
               </ul>
 
-              <div className="rounded-xl border border-border/50 bg-secondary/30 p-4 text-sm">
+              <div className="mt-auto rounded-xl border border-border/50 bg-secondary/30 p-4 text-sm">
                 <div className="mb-2 font-semibold text-foreground">
                   Success Metrics Target
                 </div>
