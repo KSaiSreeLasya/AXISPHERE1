@@ -195,7 +195,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 max-w-sm mx-auto">
               {teamMembers.map((member, index) => (
                 <TeamMemberCard
                   key={member.id}
@@ -247,63 +247,33 @@ function TeamMemberCard({ member, index, isInView, mousePosition }: TeamMemberCa
       style={{
         transform: `translate(${mousePosition.x * parallaxStrength}px, ${mousePosition.y * parallaxStrength}px)`,
       }}
-      className="group relative"
+      className="group relative perspective"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-500 hover:border-gold-500/30 hover:shadow-luxury">
-        {/* Image */}
-        <div className="relative aspect-square overflow-hidden">
-          <motion.img
-            src={member.image}
-            alt={member.name}
-            className="w-full h-full object-cover transition-transform duration-700"
-            animate={isHovered ? { scale: 1.1 } : { scale: 1 }}
-          />
-          
-          {/* Overlay */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-luxury-900/80 backdrop-blur-sm flex items-end p-6"
-          >
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.3, delay: isHovered ? 0.1 : 0 }}
-              className="text-white/90 text-sm leading-relaxed"
-            >
-              {member.bio}
-            </motion.p>
-          </motion.div>
+      <div className="relative rounded-2xl border border-border/50 hover:border-gold-500/30 hover:shadow-luxury transition-all duration-500 h-full">
+        <div className={`relative aspect-square preserve-3d transition-transform duration-700 ${isHovered ? 'rotate-y-180' : ''}`}>
+          {/* Front: Image + name */}
+          <div className="absolute inset-0 backface-hidden overflow-hidden rounded-2xl">
+            <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+              <h4 className="font-bold text-white">{member.name}</h4>
+              <p className="text-white/80 text-sm">{member.title}</p>
+            </div>
+          </div>
+
+          {/* Back: Bio */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-2xl bg-luxury-900/90 text-white p-6 flex items-center">
+            <p className="text-sm leading-relaxed">{member.bio}</p>
+          </div>
         </div>
 
-        {/* Info */}
-        <div className="p-6">
-          <motion.h4
-            className="font-bold text-foreground group-hover:text-gold-600 transition-colors duration-300"
-            animate={isHovered ? { y: -2 } : { y: 0 }}
-          >
-            {member.name}
-          </motion.h4>
-          <motion.p
-            className="text-muted-foreground text-sm"
-            animate={isHovered ? { y: -2 } : { y: 0 }}
-          >
-            {member.title}
-          </motion.p>
-        </div>
-
-        {/* Shimmer Effect */}
+        {/* Shimmer */}
         <motion.div
           initial={{ x: '-100%' }}
           animate={{ x: isHovered ? '100%' : '-100%' }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
-          className="absolute inset-0 bg-shimmer opacity-20 pointer-events-none"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
-          }}
+          className="absolute inset-0 bg-shimmer opacity-10 pointer-events-none rounded-2xl"
         />
       </div>
     </motion.div>
