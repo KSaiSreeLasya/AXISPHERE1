@@ -209,8 +209,11 @@ export default function ContactSection() {
                   onChange={handleChange}
                   className="h-4 w-4 rounded border-input"
                 />
-                I agree to the{' '}
-                <a href="/privacy-policy" className="underline hover:text-gold-600 whitespace-nowrap">
+                I agree to the{" "}
+                <a
+                  href="/privacy-policy"
+                  className="underline hover:text-gold-600 whitespace-nowrap"
+                >
                   Privacy Policy
                 </a>
                 .
