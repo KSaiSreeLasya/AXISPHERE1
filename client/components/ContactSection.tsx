@@ -106,6 +106,21 @@ export default function ContactSection() {
             </div>
           </div>
         </div>
+
+        <div className="max-w-6xl mx-auto mt-8">
+          <h3 className="text-xl font-semibold mb-3 text-foreground">Our Location</h3>
+          <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.9936605406983!2d78.35132958554053!3d17.507816056538655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9273f8b4a06b%3A0x89f1605341133cd3!2s102%2C%20103%2C%20Temple%20Ln%2C%20Phase%202%2C%20Jaya%20Prakash%20Narayan%20Nagar%2C%20Miyapur%2C%20Hyderabad%2C%20Telangana%20500049!5e0!3m2!1shi!2sin!4v1758605947867!5m2!1shi!2sin"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
