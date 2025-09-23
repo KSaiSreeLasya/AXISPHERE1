@@ -3,17 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      Axisphere — AI Content, Marketing Automation & Luxury Branding
+    </title>
+    <meta
+      name="title"
+      content="Axisphere — AI Content, Marketing Automation & Luxury Branding"
+    />
+    <meta
+      name="description"
+      content="Axisphere Worx LLP helps ambitious brands become luxury market leaders with AI content creation, performance marketing, lead generation, AI chatbots, marketing automation, analytics & insights, web design, and digital marketing."
+    />
+    <meta
+      name="keywords"
+      content="Axisphere, Axisphere Worx LLP, AI content creation, performance marketing, lead generation, AI chatbots, marketing automation, analytics, insights, luxury branding, web design, digital marketing"
+    />
+    <meta name="author" content="Axisphere Worx LLP" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Canonical -->
+    <link id="canonical" rel="canonical" href="/" />
+
+    <!-- Theme & App -->
+    <meta name="application-name" content="Axisphere" />
+    <meta
+      name="theme-color"
+      content="#3b2064"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0d0a10"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Axisphere" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Axisphere" />
+    <meta property="og:locale" content="en_US" />
+    <meta id="og-url" property="og:url" content="/" />
+    <meta
+      property="og:title"
+      content="Axisphere — AI Content, Marketing Automation & Luxury Branding"
+    />
+    <meta
+      property="og:description"
+      content="Axisphere Worx LLP helps ambitious brands become luxury market leaders with AI content creation, performance marketing, lead generation, AI chatbots, marketing automation, analytics & insights, web design, and digital marketing."
+    />
+    <meta id="og-image" property="og:image" content="/placeholder.svg" />
+    <meta property="og:image:alt" content="Axisphere brand preview" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Axisphere — AI Content, Marketing Automation & Luxury Branding"
+    />
+    <meta
+      name="twitter:description"
+      content="Axisphere Worx LLP helps ambitious brands become luxury market leaders with AI content creation, performance marketing, lead generation, AI chatbots, marketing automation, analytics & insights, web design, and digital marketing."
+    />
+    <meta id="twitter-image" name="twitter:image" content="/placeholder.svg" />
+
+    <!-- Icons -->
     <link
       rel="icon"
       type="image/webp"
       href="https://cdn.builder.io/api/v1/image/assets%2F72a4e71ce88046208dea1d98223071c4%2F6cf2f270018e44d1bd55b79af788b21d?format=webp&width=128"
     />
-    <title>Axisphere</title>
+    <link rel="apple-touch-icon" href="/placeholder.svg" />
+
+    <!-- Discovery -->
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="/sitemap.xml"
+    />
   </head>
 
   <body>
     <div id="root"></div>
 
     <script type="module" src="/client/App.tsx"></script>
+
+    <!-- SEO Runtime Updater: ensures absolute canonical and OG image URLs -->
+    <script>
+      (function () {
+        try {
+          var origin = window.location.origin;
+          var path = window.location.pathname;
+          var canonicalHref = origin + path;
+          var canonical = document.getElementById("canonical");
+          if (canonical) canonical.setAttribute("href", canonicalHref);
+
+          var ogUrl = document.getElementById("og-url");
+          if (ogUrl) ogUrl.setAttribute("content", canonicalHref);
+
+          var absImage = origin + "/placeholder.svg";
+          var ogImg = document.getElementById("og-image");
+          if (ogImg) ogImg.setAttribute("content", absImage);
+          var twImg = document.getElementById("twitter-image");
+          if (twImg) twImg.setAttribute("content", absImage);
+        } catch (e) {
+          /* fail silently */
+        }
+      })();
+    </script>
   </body>
 </html>

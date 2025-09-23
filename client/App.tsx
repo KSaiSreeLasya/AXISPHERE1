@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import { CanonicalAndOgUpdater, JsonLd } from "@/components/SEO";
+import Analytics from "@/components/Analytics";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <CanonicalAndOgUpdater />
+        <JsonLd />
+        <Analytics />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

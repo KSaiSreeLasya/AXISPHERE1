@@ -278,19 +278,19 @@ export default function ServicesSection() {
         </motion.div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="mb-6 w-full h-auto flex flex-wrap items-stretch justify-center gap-2 bg-secondary/60 backdrop-blur-xs border border-border/50 rounded-md p-2">
+          <TabsList className="mb-6 w-full h-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-stretch justify-center gap-2 bg-secondary/60 backdrop-blur-xs border border-border/50 rounded-md p-2">
             {services.map((s) => (
               <TabsTrigger
                 key={s.id}
                 value={s.id}
-                className="gap-2 px-3 py-2 whitespace-normal text-center leading-tight min-h-10"
+                className="w-full gap-2 px-3 py-2 whitespace-normal text-center leading-tight min-h-10"
               >
                 <span
                   className={`inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br ${s.gradient} text-white`}
                 >
                   {s.icon}
                 </span>
-                <span>{s.title}</span>
+                <span className="block w-full">{s.title}</span>
               </TabsTrigger>
             ))}
           </TabsList>
