@@ -33,12 +33,14 @@ export default function Navigation({ className = '' }: NavigationProps) {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
+    const element = document.querySelector(href) as HTMLElement | null;
+    const header = document.querySelector('header[data-nav]') as HTMLElement | null;
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+      const rect = element.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetTop = rect.top + scrollTop - headerHeight - 8; // small extra spacing
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
   };
@@ -46,12 +48,13 @@ export default function Navigation({ className = '' }: NavigationProps) {
   return (
     <>
       <motion.header
+        data-nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-background/80 backdrop-blur-md border-b border-border/50' 
+          isScrolled
+            ? 'bg-background/80 backdrop-blur-md border-b border-border/50'
             : 'bg-transparent'
         } ${className}`}
       >
@@ -64,7 +67,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              <BrandLogo className="h-[100px] w-auto" />
+              <BrandLogo className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
             </motion.a>
 
             {/* Desktop Navigation */}
