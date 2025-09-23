@@ -197,12 +197,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-6xl md:text-8xl font-extrabold leading-tight"
+              className="text-6xl md:text-8xl font-extrabold leading-[0.95]"
             >
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-gold-400 via-gold-600 to-gold-400 bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
-                  Luxury Redefined
-                </span>
+              <span className="block">Luxury</span>
+              <span className="block bg-gradient-to-r from-gold-400 via-gold-600 to-gold-400 bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
+                Redefined
               </span>
             </motion.h1>
           </div>
