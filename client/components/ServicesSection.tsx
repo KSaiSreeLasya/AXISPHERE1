@@ -278,19 +278,21 @@ export default function ServicesSection() {
         </motion.div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="mb-8 w-full flex flex-wrap items-center gap-3 justify-center bg-secondary/60 backdrop-blur-xs border border-border/30 rounded-full p-3 no-scrollbar">
+          <TabsList className="mb-8 w-full flex flex-wrap items-center gap-3 justify-center bg-secondary/60 backdrop-blur-xs border border-border/30 rounded-2xl py-4 px-3 no-scrollbar">
             {services.map((s) => (
               <TabsTrigger
                 key={s.id}
                 value={s.id}
-                className="min-w-[120px] sm:min-w-[140px] md:min-w-[180px] flex items-center gap-3 px-4 py-2 rounded-full whitespace-nowrap text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg"
+                className="min-w-[120px] sm:min-w-[140px] md:min-w-[180px] flex items-center gap-3 px-4 py-2 rounded-lg whitespace-normal text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg"
               >
-                <span
-                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${s.gradient} text-white shadow-sm`}
-                >
-                  {s.icon}
-                </span>
-                <span className="block w-full">{s.title}</span>
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${s.gradient} text-white shadow-md`}
+                  >
+                    {s.icon}
+                  </span>
+                  <span className="block">{s.title}</span>
+                </div>
               </TabsTrigger>
             ))}
           </TabsList>
