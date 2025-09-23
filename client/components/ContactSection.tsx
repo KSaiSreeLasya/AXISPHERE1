@@ -198,8 +198,10 @@ export default function ContactSection() {
                 className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
               />
             </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <label className="inline-flex items-center gap-2 text-sm text-foreground/80">
+
+            {/* Footer controls: consent on its own line, buttons below */}
+            <div className="space-y-4">
+              <label className="inline-flex items-center gap-2 text-sm text-foreground/80 flex-nowrap whitespace-nowrap">
                 <input
                   type="checkbox"
                   name="consent"
@@ -207,28 +209,27 @@ export default function ContactSection() {
                   onChange={handleChange}
                   className="h-4 w-4 rounded border-input"
                 />
-                I agree to the{" "}
-                <a
-                  href="/privacy-policy"
-                  className="underline hover:text-gold-600"
-                >
+                I agree to the{' '}
+                <a href="/privacy-policy" className="underline hover:text-gold-600 whitespace-nowrap">
                   Privacy Policy
                 </a>
                 .
               </label>
-              <button
-                type="submit"
-                disabled={loading}
-                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60 shadow-glow-gold"
-              >
-                {loading ? "Submitting..." : "Schedule My Consultation"}
-              </button>
-              <button
-                type="reset"
-                className="rounded-full border border-border bg-background px-6 py-3 font-medium text-foreground/80 hover:bg-secondary/50"
-              >
-                Reset
-              </button>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60 shadow-glow-gold"
+                >
+                  {loading ? "Submitting..." : "Schedule My Consultation"}
+                </button>
+                <button
+                  type="reset"
+                  className="rounded-full border border-border bg-background px-6 py-3 font-medium text-foreground/80 hover:bg-secondary/50"
+                >
+                  Reset
+                </button>
+              </div>
             </div>
           </form>
 
