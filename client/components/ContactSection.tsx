@@ -112,11 +112,11 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 items-stretch gap-8 max-w-6xl mx-auto">
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4"
+            className="h-full rounded-2xl border border-border/50 bg-card/90 backdrop-blur-sm p-6 shadow-luxury space-y-4"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
@@ -219,7 +219,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={loading}
-                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60"
+                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60 shadow-glow-gold"
               >
                 {loading ? "Submitting..." : "Schedule My Consultation"}
               </button>
@@ -233,7 +233,7 @@ export default function ContactSection() {
           </form>
 
           {/* Info cards */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 h-full">
             <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Mail className="h-4 w-4" /> Email
@@ -274,7 +274,7 @@ export default function ContactSection() {
           <h3 className="text-xl font-semibold mb-3 text-foreground">
             Our Location
           </h3>
-          <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm">
+          <div className="rounded-2xl overflow-hidden border border-border/50 shadow-luxury">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.9936605406983!2d78.35132958554053!3d17.507816056538655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9273f8b4a06b%3A0x89f1605341133cd3!2s102%2C%20103%2C%20Temple%20Ln%2C%20Phase%202%2C%20Jaya%20Prakash%20Narayan%20Nagar%2C%20Miyapur%2C%20Hyderabad%2C%20Telangana%20500049!5e0!3m2!1shi!2sin!4v1758605947867!5m2!1shi!2sin"
               width="100%"
