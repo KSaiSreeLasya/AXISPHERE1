@@ -11,15 +11,19 @@ export default function ContactSection() {
     email: "",
     phone: "",
     company: "",
-    goals: "",
+    subject: "",
+    message: "",
+    consent: false,
   });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
+    const target = e.target as HTMLInputElement & HTMLTextAreaElement;
+    const { name, value, type } = target;
+    const val = type === "checkbox" ? (target as HTMLInputElement).checked : value;
+    setForm((f) => ({ ...f, [name]: val }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,12 +45,26 @@ export default function ContactSection() {
         return;
       }
 
-      const { error } = await supabase.from("leads").insert({
+      if (!form.consent) {
+        await Swal.fire({ icon: "warning", title: "Please accept the Privacy Policy" });
+        setLoading(false);
+        return;
+      }
+
+      const metadata: Record<string, any> = {};
+      try {
+        const params = new URLSearchParams(window.location.search);
+        params.forEach((v, k) => (metadata[k] = v));
+      } catch {}
+
+      const { error } = await supabase.from("contact_messages").insert({
         name: form.name.trim(),
         email: form.email.trim(),
         phone: form.phone.trim() || null,
-        company: form.company.trim() || null,
-        goals: form.goals.trim() || null,
+        subject: form.subject.trim() || null,
+        message: form.message.trim(),
+        consent: !!form.consent,
+        metadata,
       });
       if (error) throw error;
       Swal.fire({
@@ -55,7 +73,7 @@ export default function ContactSection() {
         text: "Your request was submitted. We'll reach out shortly.",
         confirmButtonColor: "#7c3aed",
       });
-      setForm({ name: "", email: "", phone: "", company: "", goals: "" });
+      setForm({ name: "", email: "", phone: "", company: "", subject: "", message: "", consent: false });
     } catch (err: any) {
       Swal.fire({
         icon: "error",
@@ -126,15 +144,24 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">
-                  Company
-                </label>
+                <label className="mb-1 block text-sm font-medium">Company</label>
                 <input
                   type="text"
                   name="company"
                   value={form.company}
                   onChange={handleChange}
                   placeholder="Company"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="mb-1 block text-sm font-medium">Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
+                  placeholder="Subject"
                   className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
@@ -145,14 +172,24 @@ export default function ContactSection() {
               </label>
               <textarea
                 rows={5}
-                name="goals"
-                value={form.goals}
+                name="message"
+                value={form.message}
                 onChange={handleChange}
                 placeholder="What are your goals?"
                 className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
               />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <label className="inline-flex items-center gap-2 text-sm text-foreground/80">
+                <input
+                  type="checkbox"
+                  name="consent"
+                  checked={form.consent}
+                  onChange={handleChange}
+                  className="h-4 w-4 rounded border-input"
+                />
+                I agree to the <a href="/privacy-policy" className="underline hover:text-gold-600">Privacy Policy</a>.
+              </label>
               <button
                 type="submit"
                 disabled={loading}
