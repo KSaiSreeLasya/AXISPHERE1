@@ -63,6 +63,54 @@ export default function Index() {
                     href="#services"
                     className="hover:text-gold-400 transition-colors"
                   >
+                    AI Content Creation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Performance Marketing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Lead Generation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    AI Chatbots
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Marketing Automation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
+                    Analytics & Insights
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="hover:text-gold-400 transition-colors"
+                  >
                     Luxury Branding
                   </a>
                 </li>
@@ -80,14 +128,6 @@ export default function Index() {
                     className="hover:text-gold-400 transition-colors"
                   >
                     Digital Marketing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-gold-400 transition-colors"
-                  >
-                    Performance Campaigns
                   </a>
                 </li>
               </ul>

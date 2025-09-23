@@ -32,7 +32,9 @@ export default function StatsBar() {
             </div>
             <span className="text-sm">{s.label}</span>
           </div>
-          <div className="text-lg font-semibold text-foreground">{s.value}</div>
+          <div className="text-lg font-semibold text-foreground whitespace-nowrap">
+            {s.value}
+          </div>
         </div>
       ))}
     </div>
