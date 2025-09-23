@@ -72,7 +72,7 @@ export default function ContactSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Form */}
-          <form className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4">
+          <form onSubmit={handleSubmit} className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="mb-1 block text-sm font-medium">
@@ -80,6 +80,9 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
                   required
                   placeholder="Full Name"
                   className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
@@ -91,6 +94,9 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
                   required
                   placeholder="Email Address"
                   className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
@@ -100,6 +106,9 @@ export default function ContactSection() {
                 <label className="mb-1 block text-sm font-medium">Phone</label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
                   placeholder="Phone"
                   className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
@@ -110,6 +119,9 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
+                  name="company"
+                  value={form.company}
+                  onChange={handleChange}
                   placeholder="Company"
                   className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
@@ -121,6 +133,9 @@ export default function ContactSection() {
               </label>
               <textarea
                 rows={5}
+                name="goals"
+                value={form.goals}
+                onChange={handleChange}
                 placeholder="What are your goals?"
                 className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
               />
@@ -128,9 +143,10 @@ export default function ContactSection() {
             <div className="flex items-center gap-4">
               <button
                 type="submit"
-                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700"
+                disabled={loading}
+                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60"
               >
-                Schedule My Consultation
+                {loading ? "Submitting..." : "Schedule My Consultation"}
               </button>
               <button
                 type="reset"
