@@ -278,15 +278,15 @@ export default function ServicesSection() {
         </motion.div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="mb-6 w-full h-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-stretch justify-center gap-2 bg-secondary/60 backdrop-blur-xs border border-border/50 rounded-md p-2">
+          <TabsList className="mb-8 w-full overflow-x-auto flex items-center gap-3 bg-secondary/60 backdrop-blur-xs border border-border/30 rounded-full p-3">
             {services.map((s) => (
               <TabsTrigger
                 key={s.id}
                 value={s.id}
-                className="w-full gap-2 px-3 py-2 whitespace-normal text-center leading-tight min-h-10"
+                className="min-w-[140px] flex items-center gap-3 px-4 py-2 rounded-full whitespace-nowrap text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg"
               >
                 <span
-                  className={`inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br ${s.gradient} text-white`}
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${s.gradient} text-white shadow-sm`}
                 >
                   {s.icon}
                 </span>
@@ -296,15 +296,15 @@ export default function ServicesSection() {
           </TabsList>
 
           {services.map((s, i) => (
-            <TabsContent key={s.id} value={s.id} className="mt-0">
+            <TabsContent key={s.id} value={s.id} className="mt-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 * i }}
-                className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"
               >
                 {/* Overview card */}
-                <div className="lg:col-span-1 bg-card border border-border/60 rounded-2xl p-6 shadow-sm">
+                <div className="lg:col-span-1 bg-card border border-border/60 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
                   <div
                     className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${s.gradient} text-white mb-4`}
                   >
@@ -327,9 +327,9 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Right column sections */}
-                <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                   {/* Key Features */}
-                  <div className="bg-card border border-border/60 rounded-2xl p-6">
+                  <div className="bg-card border border-border/60 rounded-2xl p-6 shadow-sm">
                     <div className="flex items-center gap-2 mb-4">
                       <ListChecks className="w-5 h-5 text-gold-600" />
                       <h4 className="text-lg font-semibold">Key Features</h4>
@@ -350,7 +350,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Benefits & Results */}
-                  <div className="bg-card border border-border/60 rounded-2xl p-6">
+                  <div className="bg-card border border-border/60 rounded-2xl p-6 shadow-sm">
                     <div className="flex items-center gap-2 mb-4">
                       <CheckCircle2 className="w-5 h-5 text-gold-600" />
                       <h4 className="text-lg font-semibold">
@@ -368,7 +368,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* What You'll Receive */}
-                  <div className="md:col-span-2 bg-card border border-border/60 rounded-2xl p-6">
+                  <div className="md:col-span-2 bg-card border border-border/60 rounded-2xl p-6 shadow-sm">
                     <div className="flex items-center gap-2 mb-4">
                       <Zap className="w-5 h-5 text-gold-600" />
                       <h4 className="text-lg font-semibold">
