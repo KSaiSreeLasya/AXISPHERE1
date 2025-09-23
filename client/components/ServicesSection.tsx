@@ -250,7 +250,7 @@ export default function ServicesSection() {
   const defaultTab = useMemo(() => services[0].id, []);
 
   return (
-    <section id="services" ref={ref} className="py-24 bg-background">
+    <section id="services" ref={ref} className="pt-36 pb-24 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -278,12 +278,12 @@ export default function ServicesSection() {
         </motion.div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="mb-8 w-full flex flex-wrap items-center gap-3 justify-center bg-secondary/60 backdrop-blur-xs border border-border/30 rounded-2xl py-4 px-3 no-scrollbar">
+          <TabsList className="mb-10 w-full flex flex-wrap items-center gap-4 justify-center bg-secondary/60 backdrop-blur-xs border border-border/30 rounded-2xl py-6 px-4 no-scrollbar min-h-[104px]">
             {services.map((s) => (
               <TabsTrigger
                 key={s.id}
                 value={s.id}
-                className="min-w-[120px] sm:min-w-[140px] md:min-w-[180px] flex items-center gap-3 px-4 py-2 rounded-lg whitespace-normal text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg"
+                className="min-w-[120px] sm:min-w-[140px] md:min-w-[180px] flex items-center gap-3 px-4 py-3 rounded-lg whitespace-normal text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg"
               >
                 <div className="flex items-center gap-3">
                   <span
@@ -303,7 +303,7 @@ export default function ServicesSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 * i }}
-                className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"
+                className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start"
               >
                 {/* Overview card */}
                 <div className="lg:col-span-1 bg-card border border-border/60 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
