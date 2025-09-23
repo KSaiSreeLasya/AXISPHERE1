@@ -20,32 +20,12 @@ interface Value {
 
 const teamMembers: TeamMember[] = [
   {
-    id: '1',
-    name: 'Elena Rodriguez',
-    title: 'Creative Director',
+    id: 'shashank',
+    name: 'Shashank',
+    title: 'AI-powered Marketing Innovator',
     image: '/placeholder.svg',
-    bio: 'Visionary leader with 12+ years crafting luxury brand experiences for Fortune 500 companies.',
-  },
-  {
-    id: '2',
-    name: 'Marcus Chen',
-    title: 'Technical Director',
-    image: '/placeholder.svg',
-    bio: 'Full-stack architect specializing in cutting-edge web technologies and performance optimization.',
-  },
-  {
-    id: '3',
-    name: 'Sophia Williams',
-    title: 'Strategy Director',
-    image: '/placeholder.svg',
-    bio: 'Data-driven strategist who transforms insights into breakthrough campaigns and brand positioning.',
-  },
-  {
-    id: '4',
-    name: 'David Kim',
-    title: 'UX Director',
-    image: '/placeholder.svg',
-    bio: 'Human-centered designer creating intuitive experiences that drive engagement and conversion.',
+    bio:
+      'A recognized innovator in AI-powered marketing, Shashank builds custom lead-qualification models using ChatGPT Custom GPTs and Perplexity Labs, and designs intelligent automation workflows with Make.com, VAPI (WhatsApp API), and Philo call automation. His seamless CRM integrations—spanning Priber CRM, Sell.do, Apollo, and LinkedIn Sales Navigator—ensure real-time engagement and eliminate manual bottlenecks. Throughout his career, Shashank has delivered transformative outcomes: 15× revenue growth for oncology departments, six-figure ROI on luxury villa launches such as Konak Mansions and Iqon West, and AI-driven Shopify e-commerce scaling. As a sought-after corporate trainer, he has led workshops and certification programs for Digiperform, DSIM, and Digital Hat, empowering marketing teams to harness AI for measurable results. Whether you’re launching a marquee property, accelerating e-commerce sales, or automating high-volume lead funnels, Shashank combines deep domain expertise, creative storytelling, and relentless experimentation to deliver sustainable ROI and future-proof your marketing operations.',
   },
 ];
 
@@ -215,7 +195,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
               {teamMembers.map((member, index) => (
                 <TeamMemberCard
                   key={member.id}
