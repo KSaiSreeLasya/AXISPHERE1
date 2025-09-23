@@ -278,16 +278,16 @@ export default function ServicesSection() {
         </motion.div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="mb-16 w-full flex flex-wrap items-center gap-6 justify-center bg-secondary/70 backdrop-blur-xs border border-border/20 rounded-2xl py-8 px-6 no-scrollbar min-h-[160px] z-20 shadow-lg">
+          <TabsList className="mb-12 w-full flex flex-wrap items-center gap-4 justify-center bg-secondary/70 backdrop-blur-xs border border-border/20 rounded-2xl py-4 px-4 no-scrollbar min-h-[120px] z-20 shadow-lg">
             {services.map((s) => (
               <TabsTrigger
                 key={s.id}
                 value={s.id}
-                className="min-w-[120px] sm:min-w-[140px] md:min-w-[180px] flex items-center gap-3 px-4 py-3 rounded-lg whitespace-normal text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg data-[state=active]:ring-2 data-[state=active]:ring-gold-400/30"
+                className="min-w-[100px] sm:min-w-[120px] md:min-w-[150px] flex items-center gap-2 px-3 py-2 rounded-md whitespace-normal text-sm sm:text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg data-[state=active]:ring-2 data-[state=active]:ring-gold-400/30"
               >
                 <div className="flex items-center gap-3">
                   <span
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${s.gradient} text-white shadow-md`}
+                    className={`inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br ${s.gradient} text-white shadow`}
                   >
                     {s.icon}
                   </span>
@@ -298,7 +298,7 @@ export default function ServicesSection() {
           </TabsList>
 
           {services.map((s, i) => (
-            <TabsContent key={s.id} value={s.id} className="mt-14 relative z-0">
+            <TabsContent key={s.id} value={s.id} className="mt-12 relative z-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
