@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Building } from "lucide-react";
 import { useState } from "react";
 import type React from "react";
 import Swal from "sweetalert2";
-import { supabase } from "@/lib/supabase";
+import { getSupabaseClient } from "@/lib/supabase";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
