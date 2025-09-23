@@ -25,7 +25,8 @@ export default function ContactSection() {
                 <input
                   type="text"
                   required
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  placeholder="Full Name"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
               <div>
@@ -35,14 +36,16 @@ export default function ContactSection() {
                 <input
                   type="email"
                   required
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  placeholder="Email Address"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
               <div>
                 <label className="mb-1 block text-sm font-medium">Phone</label>
                 <input
                   type="tel"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  placeholder="Phone"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
               <div>
@@ -51,7 +54,8 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  placeholder="Company"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
             </div>
@@ -60,16 +64,25 @@ export default function ContactSection() {
                 What are your goals?
               </label>
               <textarea
-                rows={4}
-                className="w-full rounded-md border border-input bg-background px-3 py-2"
+                rows={5}
+                placeholder="What are your goals?"
+                className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full rounded-full bg-gold-500 px-6 py-3 font-semibold text-white hover:bg-gold-600"
-            >
-              Schedule My Consultation
-            </button>
+            <div className="flex items-center gap-4">
+              <button
+                type="submit"
+                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700"
+              >
+                Schedule My Consultation
+              </button>
+              <button
+                type="reset"
+                className="rounded-full border border-border bg-background px-6 py-3 font-medium text-foreground/80 hover:bg-secondary/50"
+              >
+                Reset
+              </button>
+            </div>
           </form>
 
           {/* Info cards */}
@@ -93,7 +106,8 @@ export default function ContactSection() {
                 <MapPin className="h-4 w-4" /> Visit us
               </div>
               <div className="text-sm text-foreground/80">
-                Bengaluru • Mumbai • Delhi
+                Plot no.102, 103, Temple Lane, Mythri Nagar, Mathrusri Nagar, Madinaguda,<br />
+                Serilingampally, K.V.Rangareddy-500049, Telangana, India
               </div>
             </div>
             <div className="rounded-xl border border-border/50 bg-card p-5">
