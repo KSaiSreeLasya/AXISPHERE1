@@ -30,6 +30,17 @@ export default function ContactSection() {
     }
     setLoading(true);
     try {
+      const supabase = getSupabaseClient();
+      if (!supabase) {
+        Swal.fire({
+          icon: "error",
+          title: "Server not configured",
+          text: "Supabase client is not configured. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY and restart the dev server.",
+        });
+        setLoading(false);
+        return;
+      }
+
       const { error } = await supabase.from("leads").insert({
         name: form.name.trim(),
         email: form.email.trim(),
