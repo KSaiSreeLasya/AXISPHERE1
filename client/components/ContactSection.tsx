@@ -1,6 +1,104 @@
 import { Mail, Phone, MapPin, Building } from "lucide-react";
 
+import { useState } from "react";
+import type React from "react";
+import Swal from "sweetalert2";
+import { getSupabaseClient } from "@/lib/supabase";
+
 export default function ContactSection() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    subject: "",
+    message: "",
+    consent: false,
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const target = e.target as HTMLInputElement & HTMLTextAreaElement;
+    const { name, value, type } = target;
+    const val =
+      type === "checkbox" ? (target as HTMLInputElement).checked : value;
+    setForm((f) => ({ ...f, [name]: val }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!form.name || !form.email) {
+      Swal.fire({ icon: "warning", title: "Please fill name and email" });
+      return;
+    }
+    setLoading(true);
+    try {
+      const supabase = getSupabaseClient();
+      if (!supabase) {
+        Swal.fire({
+          icon: "error",
+          title: "Server not configured",
+          text: "Supabase client is not configured. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY and restart the dev server.",
+        });
+        setLoading(false);
+        return;
+      }
+
+      if (!form.consent) {
+        await Swal.fire({
+          icon: "warning",
+          title: "Please accept the Privacy Policy",
+        });
+        setLoading(false);
+        return;
+      }
+
+      const metadata: Record<string, any> = {};
+      try {
+        const params = new URLSearchParams(window.location.search);
+        params.forEach((v, k) => (metadata[k] = v));
+      } catch {}
+
+      const { error } = await supabase.from("contact_messages").insert({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || null,
+        subject: form.subject.trim() || null,
+        message: form.message.trim(),
+        consent: !!form.consent,
+        metadata,
+      });
+      if (error) throw error;
+      Swal.fire({
+        icon: "success",
+        title: "Thanks!",
+        text: "Your request was submitted. We'll reach out shortly.",
+        confirmButtonColor: "#7c3aed",
+      });
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        subject: "",
+        message: "",
+        consent: false,
+      });
+    } catch (err: any) {
+      Swal.fire({
+        icon: "error",
+        title: "Submission failed",
+        text:
+          (err?.message as string) ||
+          "We couldn't save your request right now. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -16,7 +114,10 @@ export default function ContactSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Form */}
-          <form className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4"
+          >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="mb-1 block text-sm font-medium">
@@ -24,8 +125,12 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
                   required
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  placeholder="Full Name"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
               <div>
@@ -34,15 +139,23 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
                   required
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  placeholder="Email Address"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
               <div>
                 <label className="mb-1 block text-sm font-medium">Phone</label>
                 <input
                   type="tel"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="Phone"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
               <div>
@@ -51,7 +164,24 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  name="company"
+                  value={form.company}
+                  onChange={handleChange}
+                  placeholder="Company"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="mb-1 block text-sm font-medium">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
+                  placeholder="Subject"
+                  className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
                 />
               </div>
             </div>
@@ -60,21 +190,51 @@ export default function ContactSection() {
                 What are your goals?
               </label>
               <textarea
-                rows={4}
-                className="w-full rounded-md border border-input bg-background px-3 py-2"
+                rows={5}
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="What are your goals?"
+                className="w-full rounded-lg border border-input bg-background px-3 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full rounded-full bg-gold-500 px-6 py-3 font-semibold text-white hover:bg-gold-600"
-            >
-              Schedule My Consultation
-            </button>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <label className="inline-flex items-center gap-2 text-sm text-foreground/80">
+                <input
+                  type="checkbox"
+                  name="consent"
+                  checked={form.consent}
+                  onChange={handleChange}
+                  className="h-4 w-4 rounded border-input"
+                />
+                I agree to the{" "}
+                <a
+                  href="/privacy-policy"
+                  className="underline hover:text-gold-600"
+                >
+                  Privacy Policy
+                </a>
+                .
+              </label>
+              <button
+                type="submit"
+                disabled={loading}
+                className="rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-6 py-3 font-semibold text-white hover:from-gold-500 hover:to-gold-700 disabled:opacity-60"
+              >
+                {loading ? "Submitting..." : "Schedule My Consultation"}
+              </button>
+              <button
+                type="reset"
+                className="rounded-full border border-border bg-background px-6 py-3 font-medium text-foreground/80 hover:bg-secondary/50"
+              >
+                Reset
+              </button>
+            </div>
           </form>
 
           {/* Info cards */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-xl border border-border/50 bg-card p-5">
+          <div className="flex flex-col gap-4">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Mail className="h-4 w-4" /> Email
               </div>
@@ -82,21 +242,24 @@ export default function ContactSection() {
                 hello@ai-marketing.studio
               </div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Phone className="h-4 w-4" /> Call us
               </div>
               <div className="text-sm text-foreground/80">+91 98765 43210</div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <MapPin className="h-4 w-4" /> Visit us
               </div>
               <div className="text-sm text-foreground/80">
-                Bengaluru • Mumbai • Delhi
+                Plot no.102, 103, Temple Lane, Mythri Nagar, Mathrusri Nagar,
+                Madinaguda,
+                <br />
+                Serilingampally, K.V.Rangareddy-500049, Telangana, India
               </div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Building className="h-4 w-4" /> Business Hours
               </div>
@@ -104,6 +267,23 @@ export default function ContactSection() {
                 Mon–Sat, 9:30 AM – 7:00 PM IST
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-8">
+          <h3 className="text-xl font-semibold mb-3 text-foreground">
+            Our Location
+          </h3>
+          <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.9936605406983!2d78.35132958554053!3d17.507816056538655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9273f8b4a06b%3A0x89f1605341133cd3!2s102%2C%20103%2C%20Temple%20Ln%2C%20Phase%202%2C%20Jaya%20Prakash%20Narayan%20Nagar%2C%20Miyapur%2C%20Hyderabad%2C%20Telangana%20500049!5e0!3m2!1shi!2sin!4v1758605947867!5m2!1shi!2sin"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </div>

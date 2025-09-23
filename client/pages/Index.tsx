@@ -8,6 +8,7 @@ import BlogSection from "@/components/BlogSection";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 import BrandLogo from "@/components/BrandLogo";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
@@ -44,8 +45,11 @@ export default function Index() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
-              <div className="mb-4">
-                <BrandLogo className="h-[101px] lg:h-12 w-auto" />
+              <div className="mb-2">
+                <BrandLogo className="h-[140px] lg:h-20 w-auto" />
+              </div>
+              <div className="mb-4 text-sm font-semibold text-gold-600 dark:text-gold-400">
+                Axisphere Worx LLP
               </div>
               <p className="text-foreground/70 dark:text-white/70 leading-relaxed">
                 Transforming ambitious brands into luxury market leaders through
@@ -207,12 +211,18 @@ export default function Index() {
               © 2024 LuxuryStudio. All rights reserved.
             </div>
             <div className="flex gap-6 text-foreground/60 dark:text-white/60 text-sm">
-              <a href="#" className="hover:text-gold-400 transition-colors">
+              <Link
+                to="/privacy-policy"
+                className="hover:text-gold-400 transition-colors"
+              >
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-gold-400 transition-colors">
+              </Link>
+              <Link
+                to="/terms"
+                className="hover:text-gold-400 transition-colors"
+              >
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
