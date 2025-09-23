@@ -45,7 +45,7 @@ export default function Index() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
               <div className="mb-2">
-                <BrandLogo className="h-[101px] lg:h-12 w-auto" />
+                <BrandLogo className="h-[140px] lg:h-20 w-auto" />
               </div>
               <div className="mb-4 text-sm font-semibold text-gold-600 dark:text-gold-400">Axisphere Worx LLP</div>
               <p className="text-foreground/70 dark:text-white/70 leading-relaxed">
@@ -205,7 +205,7 @@ export default function Index() {
 
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="text-foreground/60 dark:text-white/60 text-sm">
-              © 2024 Axisphere Worx LLP. All rights reserved.
+              © 2024 LuxuryStudio. All rights reserved.
             </div>
             <div className="flex gap-6 text-foreground/60 dark:text-white/60 text-sm">
               <a href="#" className="hover:text-gold-400 transition-colors">
