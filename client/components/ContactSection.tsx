@@ -1,6 +1,62 @@
 import { Mail, Phone, MapPin, Building } from "lucide-react";
 
+import { useState } from "react";
+import Swal from "sweetalert2";
+import { supabase } from "@/lib/supabase";
+
 export default function ContactSection() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    goals: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!form.name || !form.email) {
+      Swal.fire({ icon: "warning", title: "Please fill name and email" });
+      return;
+    }
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("leads").insert({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || null,
+        company: form.company.trim() || null,
+        goals: form.goals.trim() || null,
+      });
+      if (error) throw error;
+      Swal.fire({
+        icon: "success",
+        title: "Thanks!",
+        text: "Your request was submitted. We'll reach out shortly.",
+        confirmButtonColor: "#7c3aed",
+      });
+      setForm({ name: "", email: "", phone: "", company: "", goals: "" });
+    } catch (err: any) {
+      Swal.fire({
+        icon: "error",
+        title: "Submission failed",
+        text:
+          (err?.message as string) ||
+          "We couldn't save your request right now. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
