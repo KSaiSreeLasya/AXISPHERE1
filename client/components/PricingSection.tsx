@@ -130,7 +130,7 @@ export default function PricingSection() {
                 ))}
               </ul>
 
-              <div className="rounded-xl border border-border/50 bg-secondary/30 p-4 text-sm">
+              <div className="mt-auto rounded-xl border border-border/50 bg-secondary/30 p-4 text-sm">
                 <div className="mb-2 font-semibold text-foreground">
                   Success Metrics Target
                 </div>
