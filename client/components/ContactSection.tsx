@@ -233,8 +233,8 @@ export default function ContactSection() {
           </form>
 
           {/* Info cards */}
-          <div className="flex flex-col gap-4 h-full">
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+          <div className="grid grid-rows-4 gap-4 h-full">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Mail className="h-4 w-4" /> Email
               </div>
@@ -242,13 +242,13 @@ export default function ContactSection() {
                 hello@ai-marketing.studio
               </div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Phone className="h-4 w-4" /> Call us
               </div>
               <div className="text-sm text-foreground/80">+91 98765 43210</div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <MapPin className="h-4 w-4" /> Visit us
               </div>
@@ -259,7 +259,7 @@ export default function ContactSection() {
                 Serilingampally, K.V.Rangareddy-500049, Telangana, India
               </div>
             </div>
-            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm">
+            <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Building className="h-4 w-4" /> Business Hours
               </div>
