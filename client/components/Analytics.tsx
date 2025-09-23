@@ -17,7 +17,9 @@ export default function Analytics() {
     if (!id) return;
 
     // Respect Do Not Track
-    const dnt = (navigator as any).doNotTrack === "1" || (window as any).doNotTrack === "1";
+    const dnt =
+      (navigator as any).doNotTrack === "1" ||
+      (window as any).doNotTrack === "1";
     if (dnt) return;
 
     (window as any).dataLayer = (window as any).dataLayer || [];
@@ -26,10 +28,15 @@ export default function Analytics() {
     }
     (window as any).gtag = gtag;
 
-    loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`)
+    loadScript(
+      `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`,
+    )
       .then(() => {
         gtag("js", new Date());
-        gtag("config", id, { anonymize_ip: true, page_path: location.pathname });
+        gtag("config", id, {
+          anonymize_ip: true,
+          page_path: location.pathname,
+        });
       })
       .catch(() => {
         // ignore

@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 function setOrCreateMeta(selector: string, attrs: Record<string, string>) {
   let el = document.querySelector(selector) as HTMLElement | null;
   if (!el) {
-    const tag = selector.startsWith('meta') ? 'meta' : 'link';
+    const tag = selector.startsWith("meta") ? "meta" : "link";
     el = document.createElement(tag);
     Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
     document.head.appendChild(el!);
@@ -21,15 +21,31 @@ export function CanonicalAndOgUpdater() {
     const canonicalHref = origin + pathname;
 
     // Canonical
-    setOrCreateMeta("link#canonical", { id: "canonical", rel: "canonical", href: canonicalHref });
+    setOrCreateMeta("link#canonical", {
+      id: "canonical",
+      rel: "canonical",
+      href: canonicalHref,
+    });
 
     // OG url
-    setOrCreateMeta("meta#og-url", { id: "og-url", property: "og:url", content: canonicalHref });
+    setOrCreateMeta("meta#og-url", {
+      id: "og-url",
+      property: "og:url",
+      content: canonicalHref,
+    });
 
     // Absolute social images
     const absImage = origin + "/placeholder.svg";
-    setOrCreateMeta("meta#og-image", { id: "og-image", property: "og:image", content: absImage });
-    setOrCreateMeta("meta#twitter-image", { id: "twitter-image", name: "twitter:image", content: absImage });
+    setOrCreateMeta("meta#og-image", {
+      id: "og-image",
+      property: "og:image",
+      content: absImage,
+    });
+    setOrCreateMeta("meta#twitter-image", {
+      id: "twitter-image",
+      name: "twitter:image",
+      content: absImage,
+    });
   }, [pathname]);
 
   return null;
