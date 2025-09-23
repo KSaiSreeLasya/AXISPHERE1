@@ -278,7 +278,7 @@ export default function ServicesSection() {
         </motion.div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="mb-8 w-full overflow-x-auto flex items-center gap-3 bg-secondary/60 backdrop-blur-xs border border-border/30 rounded-full p-3">
+          <TabsList className="mb-8 w-full overflow-x-auto overflow-y-hidden no-scrollbar flex items-center gap-3 bg-secondary/60 backdrop-blur-xs border border-border/30 rounded-full p-3">
             {services.map((s) => (
               <TabsTrigger
                 key={s.id}
