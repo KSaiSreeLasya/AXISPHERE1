@@ -120,7 +120,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 sm:pt-36 md:pt-40"
     >
       {/* Animated Background */}
       <motion.div
