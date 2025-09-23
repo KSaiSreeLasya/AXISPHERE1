@@ -18,11 +18,12 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const target = e.target as HTMLInputElement & HTMLTextAreaElement;
     const { name, value, type } = target;
-    const val = type === "checkbox" ? (target as HTMLInputElement).checked : value;
+    const val =
+      type === "checkbox" ? (target as HTMLInputElement).checked : value;
     setForm((f) => ({ ...f, [name]: val }));
   };
 
@@ -46,7 +47,10 @@ export default function ContactSection() {
       }
 
       if (!form.consent) {
-        await Swal.fire({ icon: "warning", title: "Please accept the Privacy Policy" });
+        await Swal.fire({
+          icon: "warning",
+          title: "Please accept the Privacy Policy",
+        });
         setLoading(false);
         return;
       }
@@ -73,7 +77,15 @@ export default function ContactSection() {
         text: "Your request was submitted. We'll reach out shortly.",
         confirmButtonColor: "#7c3aed",
       });
-      setForm({ name: "", email: "", phone: "", company: "", subject: "", message: "", consent: false });
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        subject: "",
+        message: "",
+        consent: false,
+      });
     } catch (err: any) {
       Swal.fire({
         icon: "error",
@@ -102,7 +114,10 @@ export default function ContactSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Form */}
-          <form onSubmit={handleSubmit} className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-2xl border border-border/50 bg-card p-6 shadow-sm space-y-4"
+          >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="mb-1 block text-sm font-medium">
@@ -144,7 +159,9 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">Company</label>
+                <label className="mb-1 block text-sm font-medium">
+                  Company
+                </label>
                 <input
                   type="text"
                   name="company"
@@ -155,7 +172,9 @@ export default function ContactSection() {
                 />
               </div>
               <div className="sm:col-span-2">
-                <label className="mb-1 block text-sm font-medium">Subject</label>
+                <label className="mb-1 block text-sm font-medium">
+                  Subject
+                </label>
                 <input
                   type="text"
                   name="subject"
@@ -188,7 +207,14 @@ export default function ContactSection() {
                   onChange={handleChange}
                   className="h-4 w-4 rounded border-input"
                 />
-                I agree to the <a href="/privacy-policy" className="underline hover:text-gold-600">Privacy Policy</a>.
+                I agree to the{" "}
+                <a
+                  href="/privacy-policy"
+                  className="underline hover:text-gold-600"
+                >
+                  Privacy Policy
+                </a>
+                .
               </label>
               <button
                 type="submit"
@@ -227,7 +253,9 @@ export default function ContactSection() {
                 <MapPin className="h-4 w-4" /> Visit us
               </div>
               <div className="text-sm text-foreground/80">
-                Plot no.102, 103, Temple Lane, Mythri Nagar, Mathrusri Nagar, Madinaguda,<br />
+                Plot no.102, 103, Temple Lane, Mythri Nagar, Mathrusri Nagar,
+                Madinaguda,
+                <br />
                 Serilingampally, K.V.Rangareddy-500049, Telangana, India
               </div>
             </div>
@@ -243,7 +271,9 @@ export default function ContactSection() {
         </div>
 
         <div className="max-w-6xl mx-auto mt-8">
-          <h3 className="text-xl font-semibold mb-3 text-foreground">Our Location</h3>
+          <h3 className="text-xl font-semibold mb-3 text-foreground">
+            Our Location
+          </h3>
           <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.9936605406983!2d78.35132958554053!3d17.507816056538655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9273f8b4a06b%3A0x89f1605341133cd3!2s102%2C%20103%2C%20Temple%20Ln%2C%20Phase%202%2C%20Jaya%20Prakash%20Narayan%20Nagar%2C%20Miyapur%2C%20Hyderabad%2C%20Telangana%20500049!5e0!3m2!1shi!2sin!4v1758605947867!5m2!1shi!2sin"
