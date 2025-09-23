@@ -283,7 +283,7 @@ export default function ServicesSection() {
               <TabsTrigger
                 key={s.id}
                 value={s.id}
-                className="min-w-[140px] flex items-center gap-3 px-4 py-2 rounded-full whitespace-nowrap text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg"
+                className="min-w-[120px] sm:min-w-[140px] md:min-w-[180px] flex items-center gap-3 px-4 py-2 rounded-full whitespace-nowrap text-sm leading-tight text-foreground/80 hover:text-foreground transition-colors duration-200 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-lg"
               >
                 <span
                   className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${s.gradient} text-white shadow-sm`}
