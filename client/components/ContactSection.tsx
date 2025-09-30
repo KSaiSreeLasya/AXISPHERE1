@@ -243,14 +243,14 @@ export default function ContactSection() {
                 <Mail className="h-4 w-4" /> Email
               </div>
               <div className="text-sm text-foreground/80">
-                hello@ai-marketing.studio
+                hello@axisphere.media
               </div>
             </div>
             <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
                 <Phone className="h-4 w-4" /> Call us
               </div>
-              <div className="text-sm text-foreground/80">+91 98765 43210</div>
+              <div className="text-sm text-foreground/80">+91 79810 24731</div>
             </div>
             <div className="rounded-xl border border-border/50 bg-card p-5 shadow-sm h-full flex flex-col justify-center">
               <div className="mb-2 flex items-center gap-2 font-semibold">
