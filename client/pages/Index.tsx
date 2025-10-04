@@ -9,10 +9,17 @@ import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 import BrandLogo from "@/components/BrandLogo";
 import { Link } from "react-router-dom";
+import Seo from "@/components/Seo";
+import FAQSection from "@/components/FAQSection";
 
 export default function Index() {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Luxury AI Marketing Agency | Axisphere – Transforming Brands with Intelligent Design"
+        description="Axisphere is a next-gen AI marketing agency redefining luxury branding through intelligent design, automation, and strategy. Build smarter campaigns and elevate your digital presence today."
+        canonicalPath="/"
+      />
       {/* Navigation */}
       <Navigation />
 
@@ -30,6 +37,9 @@ export default function Index() {
 
       {/* Testimonials Section */}
       <TestimonialsSection />
+
+      {/* FAQs Section */}
+      <FAQSection />
 
       {/* About Section */}
       <AboutSection />
