@@ -38,17 +38,17 @@ export default function Index() {
       {/* Testimonials Section */}
       <TestimonialsSection />
 
-      {/* FAQs Section */}
-      <FAQSection />
-
       {/* About Section */}
       <AboutSection />
 
       {/* Blog Section */}
       <BlogSection />
 
-      {/* Contact Section */}
-      <ContactSection />
+      {/* FAQs Section */}
+    <FAQSection />
+
+    {/* Contact Section */}
+    <ContactSection />
 
       {/* Footer */}
       <footer className="bg-secondary dark:bg-luxury-950 border-t border-border py-16">
