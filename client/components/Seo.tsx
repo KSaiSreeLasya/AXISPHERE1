@@ -10,7 +10,9 @@ interface SeoProps {
 const SITE_URL = "https://www.axisphere.in";
 
 function upsertMeta(name: string, content: string) {
-  let tag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+  let tag = document.querySelector(
+    `meta[name="${name}"]`,
+  ) as HTMLMetaElement | null;
   if (!tag) {
     tag = document.createElement("meta");
     tag.setAttribute("name", name);
@@ -20,7 +22,9 @@ function upsertMeta(name: string, content: string) {
 }
 
 function upsertProperty(property: string, content: string) {
-  let tag = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+  let tag = document.querySelector(
+    `meta[property="${property}"]`,
+  ) as HTMLMetaElement | null;
   if (!tag) {
     tag = document.createElement("meta");
     tag.setAttribute("property", property);
@@ -30,7 +34,9 @@ function upsertProperty(property: string, content: string) {
 }
 
 function upsertLink(rel: string, href: string) {
-  let link = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+  let link = document.querySelector(
+    `link[rel="${rel}"]`,
+  ) as HTMLLinkElement | null;
   if (!link) {
     link = document.createElement("link");
     link.setAttribute("rel", rel);
@@ -39,7 +45,12 @@ function upsertLink(rel: string, href: string) {
   link.setAttribute("href", href);
 }
 
-export default function Seo({ title, description, canonicalPath = "/", structuredData }: SeoProps) {
+export default function Seo({
+  title,
+  description,
+  canonicalPath = "/",
+  structuredData,
+}: SeoProps) {
   useEffect(() => {
     document.title = title;
     upsertMeta("description", description);
@@ -60,7 +71,9 @@ export default function Seo({ title, description, canonicalPath = "/", structure
     const id = "seo-structured-data";
     let script = document.getElementById(id) as HTMLScriptElement | null;
     if (structuredData) {
-      const payload = Array.isArray(structuredData) ? structuredData : [structuredData];
+      const payload = Array.isArray(structuredData)
+        ? structuredData
+        : [structuredData];
       const json = JSON.stringify(payload.length === 1 ? payload[0] : payload);
       if (!script) {
         script = document.createElement("script");

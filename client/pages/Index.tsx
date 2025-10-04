@@ -45,10 +45,10 @@ export default function Index() {
       <BlogSection />
 
       {/* FAQs Section */}
-    <FAQSection />
+      <FAQSection />
 
-    {/* Contact Section */}
-    <ContactSection />
+      {/* Contact Section */}
+      <ContactSection />
 
       {/* Footer */}
       <footer className="bg-secondary dark:bg-luxury-950 border-t border-border py-16">
