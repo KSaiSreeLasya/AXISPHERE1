@@ -5,10 +5,8 @@ interface BrandLogoProps {
   alt?: string;
 }
 
-const LOGO_DARK =
-  "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2Fc1294c5b215140a7b230049014fe792e?format=webp&width=800";
-const LOGO_LIGHT =
-  "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2Fc1294c5b215140a7b230049014fe792e?format=webp&width=800";
+const LOGO_DARK = "/placeholder.svg";
+const LOGO_LIGHT = "/placeholder.svg";
 
 export default function BrandLogo({
   className = "h-10 w-auto",
