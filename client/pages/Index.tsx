@@ -19,6 +19,13 @@ export default function Index() {
         title="Luxury AI Marketing Agency | Axisphere"
         description="Axisphere elevates luxury brands with AI—intelligent design, automation, and strategy for measurable growth and premium digital experiences."
         canonicalPath="/"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Axisphere",
+          "url": "https://www.axisphere.in",
+          "logo": "https://cdn.builder.io/api/v1/image/assets%2F72a4e71ce88046208dea1d98223071c4%2F6cf2f270018e44d1bd55b79af788b21d?format=webp&width=512"
+        }}
       />
       {/* Navigation */}
       <Navigation />
