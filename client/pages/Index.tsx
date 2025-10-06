@@ -22,9 +22,9 @@ export default function Index() {
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "Axisphere",
-          "url": "https://www.axisphere.in",
-          "logo": "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2Fc1294c5b215140a7b230049014fe792e?format=webp&width=512"
+          name: "Axisphere",
+          url: "https://www.axisphere.in",
+          logo: "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2Fc1294c5b215140a7b230049014fe792e?format=webp&width=512",
         }}
       />
       {/* Navigation */}
