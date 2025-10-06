@@ -24,7 +24,7 @@ export default function Index() {
           "@type": "Organization",
           "name": "Axisphere",
           "url": "https://www.axisphere.in",
-          "logo": "https://cdn.builder.io/api/v1/image/assets%2F72a4e71ce88046208dea1d98223071c4%2F6cf2f270018e44d1bd55b79af788b21d?format=webp&width=512"
+          "logo": "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2Fc1294c5b215140a7b230049014fe792e?format=webp&width=512"
         }}
       />
       {/* Navigation */}
