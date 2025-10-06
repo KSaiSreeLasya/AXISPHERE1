@@ -6,7 +6,7 @@ interface BrandLogoProps {
 }
 
 const LOGO_DARK =
-  "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F0af777590758424cb841fc43c86dc9a9?format=webp&width=800";
+  "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F1809671e77ec4104926014b2da4baf41?format=webp&width=800";
 const LOGO_LIGHT =
   "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2F371dc2f47d9148b097176fb26df84f2d?format=webp&width=800";
 
