@@ -6,8 +6,8 @@ export default function Packages() {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="AI Marketing Packages | Smart Plans for Every Business | Axisphere"
-        description="Choose from Axisphere’s tailored AI marketing packages – from starter plans to enterprise automation – crafted to scale your brand’s digital growth and maximize ROI."
+        title="AI Marketing Packages: Starter–Enterprise | Axisphere"
+        description="Tailored plans combining automation, analytics, and performance marketing to scale growth and maximize ROI."
         canonicalPath="/packages"
       />
       <Navigation />

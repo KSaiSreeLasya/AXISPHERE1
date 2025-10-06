@@ -6,8 +6,8 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Client Success Stories | Axisphere – AI Marketing in Action"
-        description="See how Axisphere helps brands achieve measurable results with AI-driven campaigns, creative excellence, and automated marketing solutions."
+        title="Client Success Stories | Axisphere"
+        description="Real results from AI-led campaigns, creative excellence, and automated journeys delivering measurable impact across industries."
         canonicalPath="/case-studies"
       />
       <Navigation />

@@ -6,8 +6,8 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="About Axisphere | AI Marketing Agency Redefining Digital Luxury"
-        description="At Axisphere, we combine AI technology and creativity to craft premium marketing solutions that elevate brand experiences and redefine digital excellence."
+        title="About Axisphere | Luxury AI Marketing"
+        description="Where AI and creativity meet to craft premium brand experiences, intelligent systems, and sustainable long‑term growth."
         canonicalPath="/about"
       />
       <Navigation />

@@ -16,8 +16,8 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Luxury AI Marketing Agency | Axisphere – Transforming Brands with Intelligent Design"
-        description="Axisphere is a next-gen AI marketing agency redefining luxury branding through intelligent design, automation, and strategy. Build smarter campaigns and elevate your digital presence today."
+        title="Luxury AI Marketing Agency | Axisphere"
+        description="Axisphere elevates luxury brands with AI—intelligent design, automation, and strategy for measurable growth and premium digital experiences."
         canonicalPath="/"
       />
       {/* Navigation */}
