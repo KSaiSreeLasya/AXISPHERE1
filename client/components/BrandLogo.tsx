@@ -5,8 +5,8 @@ interface BrandLogoProps {
   alt?: string;
 }
 
-const LOGO_DARK = "https://cdn.builder.io/api/v1/image/assets%2F1da36f95da37465c94eb5c810eac35c8%2Fe0dc083b75d04e75a99d8c4ee7226917?format=webp&width=800"; // white logo
-const LOGO_LIGHT = "https://cdn.builder.io/api/v1/image/assets%2F1da36f95da37465c94eb5c810eac35c8%2F6ac2946c44574b16a0c5acc459426f9d?format=webp&width=800"; // black logo
+const LOGO_DARK = "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2Fc1294c5b215140a7b230049014fe792e?format=webp&width=800";
+const LOGO_LIGHT = "https://cdn.builder.io/api/v1/image/assets%2F59bf3e928fc9473a97d5e87470c824bb%2Fc1294c5b215140a7b230049014fe792e?format=webp&width=800";
 
 export default function BrandLogo({ className = 'h-10 w-auto', alt = 'Brand logo' }: BrandLogoProps) {
   const getInitialDark = () =>
