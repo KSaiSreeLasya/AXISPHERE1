@@ -1,94 +1,86 @@
-import React, { useState } from 'react';
-import './CertificationsSection.css';
+import React, { useState } from "react";
+import "./CertificationsSection.css";
 
-const certifications = [
-  {
-    id: 1,
-    title: 'ISO/IEC 27001:2022',
-    image: '/iso-27001-certificate-thumb.png',
-    description:
-      'Information Security Management System certification demonstrates our compliance with global security and data protection standards.',
-  },
-  {
-    id: 2,
-    title: 'ISO 9001:2015',
-    image: '/iso-9001-certificate-thumb.png',
-    description:
-      'Quality Management System certification reflects our commitment to delivering consistent quality and continuous improvement.',
-  },
-];
+export default function CertificationsSection() {
+  const [flippedId, setFlippedId] = useState<number | null>(null);
 
-const CertificationSection: React.FC = () => {
-  const [flipped, setFlipped] = useState<number | null>(null);
-  const [modalImage, setModalImage] = useState<string | null>(null);
+  const certifications = [
+    {
+      id: 1,
+      title: "ISO/IEC 27001:2022",
+      subtitle: "Information Security Management System",
+      image: "/iso-27001-certificate-thumb.png",
+      pdf: "/iso-27001-certificate.pdf",
+      description:
+        "Axisphere Mediaworx LLP is ISO/IEC 27001:2022 certified, demonstrating our strong commitment to protecting information security and maintaining confidentiality, integrity, and availability of data.",
+    },
+    {
+      id: 2,
+      title: "ISO 9001:2015",
+      subtitle: "Quality Management System",
+      image: "/iso-9001-certificate-thumb.png",
+      pdf: "/iso-9001-certificate.pdf",
+      description:
+        "Our ISO 9001:2015 certification showcases Axisphere’s dedication to continuous improvement, customer satisfaction, and delivering quality-driven services across all operations.",
+    },
+  ];
 
-  const handleFlip = (id: number) => {
-    setFlipped(flipped === id ? null : id);
-  };
-
-  const openModal = (image: string) => {
-    setModalImage(image);
-  };
-
-  const closeModal = () => {
-    setModalImage(null);
+  const toggleFlip = (id: number) => {
+    setFlippedId(flippedId === id ? null : id);
   };
 
   return (
-    <section className="py-16 bg-gray-50 text-center">
-      <h2 className="text-3xl font-bold text-gray-900 mb-2">Our Certifications</h2>
-      <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-        Axisphere Mediaworx LLP is recognized globally for its commitment to quality, security, and excellence
-        through internationally accredited standards.
-      </p>
+    <section id="certifications" className="cert-section py-24 bg-gray-50 text-center">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Certifications</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto mb-16">
+          Axisphere Mediaworx LLP is recognized globally for its commitment to quality,
+          security, and excellence through internationally accredited standards.
+        </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {certifications.map((cert) => (
-          <div
-            key={cert.id}
-            className="perspective cursor-pointer"
-            onClick={() => handleFlip(cert.id)}
-          >
-            <div className={`card-container ${flipped === cert.id ? 'is-flipped' : ''}`}>
-              {/* Front */}
-              <div className="card-face card-front flex flex-col justify-center items-center">
-                <img src={cert.image} alt={cert.title} className="w-40 h-40 object-contain mb-4" />
-                <h3 className="text-lg font-semibold">{cert.title}</h3>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 justify-center items-center">
+          {certifications.map((cert) => (
+            <div
+              key={cert.id}
+              className="card-wrapper perspective"
+              onClick={() => toggleFlip(cert.id)}
+            >
+              <div
+                className={`flip-card-inner ${flippedId === cert.id ? "flipped" : ""}`}
+              >
+                {/* Front Side */}
+                <div className="flip-card-front bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-80 h-96 object-contain rounded-lg"
+                  />
+                  <h3 className="text-lg font-semibold text-gray-800 mt-4">
+                    {cert.title}
+                  </h3>
+                </div>
 
-              {/* Back */}
-              <div className="card-face card-back flex flex-col justify-center items-center">
-                <p className="text-gray-700 mb-4">{cert.description}</p>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    openModal(cert.image);
-                  }}
-                  className="mt-2 bg-violet-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-violet-700 transition"
-                >
-                  View Certification
-                </button>
+                {/* Back Side */}
+                <div className="flip-card-back bg-white rounded-2xl shadow-xl p-8 text-center flex flex-col justify-center items-center">
+                  <h3 className="text-xl font-bold text-gray-800">{cert.title}</h3>
+                  <p className="text-gray-500 text-sm mt-2">{cert.subtitle}</p>
+                  <p className="text-gray-600 mt-4 text-sm leading-relaxed">
+                    {cert.description}
+                  </p>
+                  <a
+                    href={cert.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-block bg-violet-600 text-white px-6 py-3 rounded-lg hover:bg-violet-700 shadow-md transition-all duration-300"
+                  >
+                    View Certification
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Modal */}
-      {modalImage && (
-        <div
-          className="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
-          onClick={closeModal}
-        >
-          <img
-            src={modalImage}
-            alt="Certification Full View"
-            className="max-w-3xl w-full rounded-xl shadow-lg border-4 border-white"
-          />
+          ))}
         </div>
-      )}
+      </div>
     </section>
   );
-};
-
-export default CertificationSection;
+}
