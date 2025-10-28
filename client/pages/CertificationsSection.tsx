@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CertificationsSection.css"; // 👈 add custom flip styles here
 
 export default function CertificationsSection() {
   const [selectedCert, setSelectedCert] = useState<any>(null);
@@ -39,34 +40,33 @@ export default function CertificationsSection() {
         {/* Certification Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center items-center">
           {certifications.map((cert) => (
-            <div
-              key={cert.id}
-              className="relative group w-full h-96 perspective cursor-pointer"
-            >
-              {/* Front Side */}
-              <div className="absolute inset-0 bg-white rounded-2xl shadow-md p-4 transition-all duration-500 transform group-hover:rotate-y-180">
-                <img
-                  src={cert.thumb}
-                  alt={cert.title}
-                  className="rounded-xl w-full h-full object-contain"
-                />
-              </div>
+            <div key={cert.id} className="flip-card">
+              <div className="flip-inner">
+                {/* Front Side */}
+                <div className="flip-front bg-white rounded-2xl shadow-md p-4">
+                  <img
+                    src={cert.thumb}
+                    alt={cert.title}
+                    className="rounded-xl w-full h-full object-contain"
+                  />
+                </div>
 
-              {/* Back Side */}
-              <div className="absolute inset-0 bg-white rounded-2xl shadow-md p-6 text-center transform rotate-y-180 backface-hidden transition-all duration-500 group-hover:rotate-y-0 flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-gray-700">
-                  {cert.title}
-                </h3>
-                <p className="text-gray-500 text-sm mt-2">{cert.subtitle}</p>
-                <p className="text-gray-600 mt-4 text-sm leading-relaxed">
-                  {cert.description}
-                </p>
-                <button
-                  onClick={() => setSelectedCert(cert)}
-                  className="mt-6 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
-                >
-                  View Certificate
-                </button>
+                {/* Back Side */}
+                <div className="flip-back bg-white rounded-2xl shadow-md p-6 text-center flex flex-col justify-center">
+                  <h3 className="text-xl font-semibold text-gray-700">
+                    {cert.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm mt-2">{cert.subtitle}</p>
+                  <p className="text-gray-600 mt-4 text-sm leading-relaxed">
+                    {cert.description}
+                  </p>
+                  <button
+                    onClick={() => setSelectedCert(cert)}
+                    className="mt-6 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+                  >
+                    View Certificate
+                  </button>
+                </div>
               </div>
             </div>
           ))}
