@@ -3,6 +3,8 @@ import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import CertificationsSection from "@/pages/CertificationsSection";
+
 import AboutSection from "@/components/AboutSection";
 import BlogSection from "@/components/BlogSection";
 import PricingSection from "@/components/PricingSection";
@@ -47,6 +49,8 @@ export default function Index() {
 
       {/* About Section */}
       <AboutSection />
+      {/* Certifications Section */}
+      <CertificationsSection />
 
       {/* Blog Section */}
       <BlogSection />
