@@ -10,9 +10,8 @@
 
 .card-wrapper {
   width: 100%;
-  height: auto; /* allow height to adjust dynamically */
+  height: 520px;
   position: relative;
-  padding: 0; /* remove extra padding */
 }
 
 .flip-card-inner {
@@ -35,8 +34,6 @@
   border-radius: 1.25rem;
   backface-visibility: hidden;
   overflow: hidden;
-  border: none; /* remove box border */
-  box-shadow: none; /* remove shadow */
 }
 
 .flip-card-front {
@@ -44,9 +41,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: none; /* remove background gradient */
+  background: linear-gradient(145deg, #ffffff, #f3f3f3);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
-  padding: 0; /* remove inner padding */
 }
 
 .flip-card-back {
@@ -58,31 +55,16 @@
   align-items: center;
 }
 
-/* Increased image size + better visibility */
 .flip-card-front img {
-  width: 380px; /* increased for better clarity */
-  height: auto;
-  border-radius: 10px;
-  object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
   transition: transform 0.3s ease, filter 0.3s ease;
-  margin: 0; /* remove gaps around image */
 }
 
 .flip-card-front:hover img {
-  transform: scale(1.05);
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.2));
-}
-
-/* Caption below image */
-.flip-card-front p {
-  text-align: center;
-  font-weight: 600;
-  margin-top: 8px;
-  font-size: 1rem;
-  color: #000;
+  transform: scale(1.03);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
 }
 
 a {
   text-decoration: none;
-}
+} 
