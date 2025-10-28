@@ -1,14 +1,15 @@
 import { useState } from "react";
 
 export default function CertificationsSection() {
-  const [selectedCert, setSelectedCert] = useState(null);
+  const [selectedCert, setSelectedCert] = useState<any>(null);
 
   const certifications = [
     {
       id: 1,
       title: "ISO/IEC 27001:2022",
       subtitle: "Information Security Management System",
-      image: "/assets/iso-27001-certificate.png",
+      thumb: "/iso-27001-thumb.png",
+      pdf: "/iso-27001-certificate.pdf",
       description:
         "Axisphere Mediaworx LLP is ISO/IEC 27001:2022 certified, demonstrating our strong commitment to protecting information security and maintaining confidentiality, integrity, and availability of data.",
     },
@@ -16,7 +17,8 @@ export default function CertificationsSection() {
       id: 2,
       title: "ISO 9001:2015",
       subtitle: "Quality Management System",
-      image: "/assets/iso-9001-certificate.png",
+      thumb: "/iso-9001-thumb.png",
+      pdf: "/iso-9001-certificate.pdf",
       description:
         "Our ISO 9001:2015 certification showcases Axisphere’s dedication to continuous improvement, customer satisfaction, and delivering quality-driven services across all operations.",
     },
@@ -44,7 +46,7 @@ export default function CertificationsSection() {
               {/* Front Side */}
               <div className="absolute inset-0 bg-white rounded-2xl shadow-md p-4 transition-all duration-500 transform group-hover:rotate-y-180">
                 <img
-                  src={cert.image}
+                  src={cert.thumb}
                   alt={cert.title}
                   className="rounded-xl w-full h-full object-contain"
                 />
@@ -74,21 +76,18 @@ export default function CertificationsSection() {
       {/* Fullscreen Modal */}
       {selectedCert && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative max-w-4xl w-full mx-4">
+          <div className="relative max-w-5xl w-full h-[90vh] mx-4 bg-white rounded-xl overflow-hidden">
             <button
               onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 text-white text-2xl font-bold"
+              className="absolute top-4 right-4 text-white text-2xl font-bold z-10"
             >
               ✕
             </button>
-            <img
-              src={selectedCert.image}
-              alt={selectedCert.title}
-              className="rounded-xl w-full h-auto max-h-[90vh] object-contain"
-            />
-            <h3 className="text-white text-xl mt-4 text-center font-semibold">
-              {selectedCert.title} – {selectedCert.subtitle}
-            </h3>
+            <iframe
+              src={selectedCert.pdf}
+              title={selectedCert.title}
+              className="w-full h-full"
+            ></iframe>
           </div>
         </div>
       )}
