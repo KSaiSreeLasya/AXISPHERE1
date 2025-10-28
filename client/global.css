@@ -27,19 +27,19 @@
     --luxury-900: 270 35% 12%;
     --luxury-950: 270 40% 8%;
 
-    /* Primary (was "gold"): Royal purple and companions */
+    /* Primary (Royal purple) */
     --gold-50: 261 84% 96%;
     --gold-100: 261 84% 90%;
     --gold-200: 261 84% 85%;
     --gold-300: 261 84% 82%;
     --gold-400: 261 84% 80%; /* secondary lilac */
-    --gold-500: 273 60% 55%; /* mid purple */
+    --gold-500: 273 60% 55%;
     --gold-600: 273 54% 40%; /* primary */
     --gold-700: 273 54% 33%;
     --gold-800: 273 54% 26%;
     --gold-900: 273 54% 20%;
 
-    /* Tertiary (was "platinum"): Aqua accent */
+    /* Tertiary (Aqua accent) */
     --platinum-50: 193 60% 96%;
     --platinum-100: 193 60% 92%;
     --platinum-200: 193 60% 88%;
@@ -61,16 +61,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 270 40% 10%;
 
-    --primary: 273 54% 40%; /* royal purple */
+    --primary: 273 54% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 261 84% 90%; /* soft lilac surface */
+    --secondary: 261 84% 90%;
     --secondary-foreground: 270 40% 12%;
 
     --muted: 270 20% 96%;
     --muted-foreground: 270 18% 46%;
 
-    --accent: 193 60% 82%; /* aqua */
+    --accent: 193 60% 82%;
     --accent-foreground: 270 40% 12%;
 
     --destructive: 0 84.2% 60.2%;
@@ -129,22 +129,26 @@
 html,
 body {
   overflow-x: hidden;
-  -ms-overflow-style: none; /* IE & Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
+/* -------------------- */
+/* Utility Enhancements */
+/* -------------------- */
 @layer utilities {
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE & Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
   }
+
   .perspective {
     perspective: 1000px;
   }
@@ -156,5 +160,38 @@ body::-webkit-scrollbar {
   }
   .rotate-y-180 {
     transform: rotateY(180deg);
+  }
+
+  /* Flip animation transition */
+  .flip-card {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover {
+    transform: rotateY(180deg);
+  }
+
+  /* Certification modal smooth open */
+  .fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive card height for mobile */
+  @media (max-width: 768px) {
+    .cert-card {
+      height: 320px !important;
+    }
   }
 }
