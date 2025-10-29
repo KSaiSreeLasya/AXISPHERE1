@@ -53,7 +53,7 @@ const plans = [
   },
   {
     name: "AI Enterprise Package",
-    price: "₹1,50,000",
+    price: "contact Us",
     icon: Building2,
     highlights: [
       "100+ AI-generated social media posts per month",
